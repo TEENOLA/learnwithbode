@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #002955;
+  --color-navy-deep: #001633;
+  --color-navy-mid: #0b4a8a;
+  --color-orange: #ff780d;
+  --color-orange-soft: #ff8d33;
+  --color-tint: #eef2f7;
+  --color-line: #c9d4e2;
+  --color-ink: #0a1e3a;
+  --color-muted: #4b607a;
+  --color-sky: #c9d8ec;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-orange);
+    outline-offset: 3px;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* ---------- Motion ----------
+   Every animated element is fully visible by default. Hidden start states only exist inside the
+   no-preference block, so visitors who ask for reduced motion see the finished illustrations. */
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes pop-in {
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+@keyframes reveal-across {
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes pendulum-swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }
+  75% { transform: rotate(20deg); }
+}
+@keyframes rise-into-place {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes cell-split-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-12px); }
+}
+@keyframes cell-split-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(12px); }
+}
+
+.cell-left { transform: translateX(-12px); }
+.cell-right { transform: translateX(12px); }
+.pendulum-swing { transform-origin: 32px 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Orbit frame */
+  .orbit-frame .arc-draw,
+  .orbit-frame .curve-draw { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+  .orbit-frame.in-view .arc-draw { animation: draw-line 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  .orbit-frame.in-view .curve-draw { animation: draw-line 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards; }
+  .orbit-frame .arc-dot { opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(0.3); }
+  .orbit-frame.in-view .arc-dot { animation: pop-in 0.45s ease-out 1.4s forwards; }
+  .orbit-frame .fade-item { opacity: 0; }
+  .orbit-frame.in-view .fade-item { animation: fade-in 0.9s ease-out var(--delay, 0s) forwards; }
+
+  /* Subject illustrations */
+  .subject-icon .draw { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+  .in-view .subject-icon .draw { animation: draw-line 1.4s ease-in-out 0.2s forwards; }
+  .subject-icon .tangent-point { opacity: 0; }
+  .in-view .subject-icon .tangent-point { animation: fade-in 0.4s ease-out 1.2s forwards; }
+  .in-view .pendulum-swing { animation: pendulum-swing 2.6s ease-in-out 0.2s 2; }
+  .subject-icon .bubble { opacity: 0; }
+  .in-view .subject-icon .bubble { animation: rise-into-place 0.9s ease-out forwards; }
+  .in-view .subject-icon .bubble-two { animation-delay: 0.25s; }
+  .in-view .subject-icon .bubble-three { animation-delay: 0.5s; }
+  .in-view .subject-icon .bubble-four { animation-delay: 0.75s; }
+  .in-view .cell-left { animation: cell-split-left 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards; }
+  .in-view .cell-right { animation: cell-split-right 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards; }
+
+  /* Getting started: the line climbs from step to step */
+  .steps-line .step-node,
+  .steps-line .step-text { opacity: 0; }
+  .steps-line .step-node { transform: scale(0.5); }
+  .steps-line.in-view .step-node { animation: pop-in 0.4s ease-out var(--step-delay, 0s) forwards; }
+  .steps-line.in-view .step-text { animation: fade-in 0.6s ease-out calc(var(--step-delay, 0s) + 0.15s) forwards; }
+  .steps-line .step-connector { clip-path: inset(0 100% 0 0); }
+  .steps-line.in-view .step-connector { animation: reveal-across 0.55s ease-in-out calc(var(--step-delay, 0s) + 0.3s) forwards; }
+  .steps-line .step-connector-vertical { clip-path: inset(0 0 100% 0); }
+  .steps-line.in-view .step-connector-vertical { animation: reveal-across 0.55s ease-in-out calc(var(--step-delay, 0s) + 0.3s) forwards; }
+}
