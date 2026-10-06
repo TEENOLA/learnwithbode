@@ -1,6 +1,7 @@
-export type ServiceNeed = 'general' | 'group' | 'private' | 'sourcing'
+export type ServiceNeed = 'trial' | 'general' | 'group' | 'private' | 'sourcing'
 
 export const serviceOptions: { id: ServiceNeed; label: string; whatsappIntro: string }[] = [
+  { id: 'trial', label: 'Book a free trial', whatsappIntro: "Hello Bode, I'd like to book a free trial." },
   { id: 'general', label: 'General enquiry', whatsappIntro: "Hello Bode, I'd like to make an enquiry." },
   { id: 'group', label: 'Group classes quote', whatsappIntro: "Hello Bode, I'd like a quote for group classes." },
   { id: 'private', label: 'Private tutoring quote', whatsappIntro: "Hello Bode, I'd like a quote for private tutoring." },
@@ -12,8 +13,8 @@ export const serviceOptions: { id: ServiceNeed; label: string; whatsappIntro: st
 ]
 
 export const examGroups = [
-  { title: 'Secondary school leaving', exams: ['WAEC', 'NECO', 'GCE'] },
-  { title: 'University entry in Nigeria', exams: ['JAMB', 'Post-UTME', 'JUPEB'] },
+  { title: 'Secondary school exams', exams: ['WAEC', 'NECO', 'GCE'] },
+  { title: 'University entry (Nigeria)', exams: ['JAMB', 'Post-UTME', 'JUPEB'] },
   { title: 'International', exams: ['IGCSE', 'A Levels', 'SAT'] },
 ]
 
@@ -32,16 +33,16 @@ export const subjects: { name: string; icon: SubjectIconName }[] = [
 
 export const principles = [
   {
-    title: 'Explained from first principles',
+    title: 'Understand it, don’t memorise it.',
     body: 'Every topic starts with why it works, so formulas make sense instead of being memorised and forgotten.',
   },
   {
-    title: 'Practised the way the exam asks',
-    body: 'Past questions and exam technique are built into every class, so students meet no surprises on the day.',
+    title: 'Practised the way the exam asks.',
+    body: 'Past questions and exam technique are built into every class, so nothing on exam day feels new.',
   },
   {
-    title: 'Taught live, by a real person',
-    body: 'Students ask questions as they go and get answers straight away, in a group or one to one.',
+    title: 'Live classes, real answers.',
+    body: 'Ask questions as we go and get answers straight away, in a group or one-to-one.',
   },
 ]
 
@@ -66,12 +67,9 @@ export const steps = [
 
 export const testimonials = [
   {
-    quote: '[Parent testimonial: one or two sentences on what changed for their child.]',
-    attribution: '[Parent name], parent of a [WAEC] student',
-  },
-  {
-    quote: '[Student testimonial: how the classes helped them understand a hard topic.]',
-    attribution: '[Student name], [exam and year]',
+    quote:
+      'Learning with Bode gave me the foundation to believe in my potential, embrace challenges, and pursue opportunities beyond what I imagined possible.',
+    attribution: 'Fatima Dabiri',
   },
 ]
 
@@ -87,7 +85,16 @@ export const faqs = [
   {
     question: 'How do the online classes work?',
     answer:
-      'Group classes run live on Zoom. The schedule and class details are shared in a WhatsApp group for your class, so you always know when and how to join.',
+      'Classes are live on Zoom. Once you join, you’re added to a class WhatsApp group where we share the schedule, links and updates. You’ll need a phone or laptop and a stable internet connection.',
+  },
+  {
+    question: 'Is there a free trial?',
+    answer:
+      'Yes. Pick one subject, either your easiest or the one you struggle with most, and attend a class free before you commit.',
+  },
+  {
+    question: 'What if a student misses a class?',
+    answer: 'All classes are recorded for students to rewatch and gain clarity.',
   },
   {
     question: 'What is the difference between group classes and private tutoring?',
@@ -96,7 +103,8 @@ export const faqs = [
   },
   {
     question: 'How much does it cost?',
-    answer: 'Fees depend on the programme and the number of subjects. Send an enquiry and we will reply with a quote.',
+    answer:
+      'Group classes start from ₦30,000 for a 4-subject combination per month. Private tutoring starts from ₦300,000 per month. The final price depends on your exam and subjects, and we confirm it before you pay.',
   },
   {
     question: 'What if you do not teach the subject I need?',
@@ -110,6 +118,6 @@ export const footerLinks = [
   { label: 'Group classes and private tutoring', href: '#classes' },
   { label: 'Your tutor', href: '#tutor' },
   { label: 'Find a tutor', href: '#find-a-tutor' },
-  { label: 'Questions parents ask', href: '#faq' },
+  { label: 'Frequently asked questions', href: '#faq' },
   { label: 'Make an enquiry', href: '#enquire' },
 ]

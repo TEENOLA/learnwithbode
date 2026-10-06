@@ -39,8 +39,9 @@ export default function Classes({ onChooseNeed }: ClassesProps) {
           <DetailList
             rows={[
               { label: 'Where', value: 'Live on Zoom' },
+              { label: 'Schedule', value: 'Weekday and weekend evenings, so students can join after school' },
               { label: 'Class details', value: 'Shared in your class WhatsApp group' },
-              { label: 'Fees', value: 'Available on request' },
+              { label: 'Fees', value: 'From ₦30,000 a month' },
             ]}
           />
           <a
@@ -61,8 +62,9 @@ export default function Classes({ onChooseNeed }: ClassesProps) {
           <DetailList
             rows={[
               { label: 'Where', value: 'Online, one to one' },
-              { label: 'Planned around', value: 'Your exam, subjects and schedule' },
-              { label: 'Fees', value: 'Quoted for each student' },
+              { label: 'Planned around', value: 'Your exam and subjects' },
+              { label: 'Schedule', value: 'Tailored to your arrangements' },
+              { label: 'Fees', value: 'From ₦300,000 a month' },
             ]}
           />
           <a

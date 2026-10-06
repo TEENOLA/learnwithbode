@@ -25,9 +25,9 @@ export default function App() {
       >
         Skip to content
       </a>
-      <Header />
+      <Header onChooseNeed={setSelectedNeed} />
       <main id="main">
-        <Hero />
+        <Hero onChooseNeed={setSelectedNeed} />
         <WhatWeTeach />
         <WhyLwb />
         <SineExplainer />

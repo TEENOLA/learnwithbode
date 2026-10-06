@@ -1,9 +1,11 @@
 import { siteConfig } from '../config/site'
-import { buildWhatsAppChatUrl } from '../lib/enquiry'
+import type { ServiceNeed } from '../data/content'
 import Container from './Container'
 import OrbitFrame from './OrbitFrame'
 
-export default function Hero() {
+type HeroProps = { onChooseNeed: (need: ServiceNeed) => void }
+
+export default function Hero({ onChooseNeed }: HeroProps) {
   return (
     <section id="top" className="relative overflow-hidden bg-navy">
       <div
@@ -16,23 +18,22 @@ export default function Hero() {
             Where science becomes simple.
           </h1>
           <p className="max-w-[520px] text-[17px] leading-relaxed text-sky md:text-xl">
-            Live online classes and private tutoring in the sciences, maths and English, for students preparing for
-            WAEC, SAT, A Levels and other major exams.
+            Live online classes and private tutoring in Physics, Chemistry, Biology, Maths and English for JAMB, WAEC, NECO,
+            Post-UTME, JUPEB, SAT and A Levels. Pick a subject and try it free.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3.5">
             <a
               href="#enquire"
+              onClick={() => onChooseNeed('trial')}
               className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-orange px-7 text-base font-semibold text-navy hover:bg-orange-soft"
             >
-              Make an enquiry
+              Book a free trial
             </a>
             <a
-              href={buildWhatsAppChatUrl()}
-              target="_blank"
-              rel="noreferrer"
+              href="#classes"
               className="inline-flex min-h-[52px] items-center justify-center rounded-md border-2 border-white px-7 text-base font-semibold text-white hover:bg-white/10"
             >
-              Chat with Bode on WhatsApp
+              See classes and fees
             </a>
           </div>
         </div>

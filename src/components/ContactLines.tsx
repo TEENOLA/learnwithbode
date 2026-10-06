@@ -14,14 +14,9 @@ interface ContactEntry {
 function buildEntries(): ContactEntry[] {
   return [
     {
-      label: 'Call Bode',
+      label: 'Call or WhatsApp',
       display: siteConfig.phoneDisplay,
       href: siteConfig.phoneDial ? `tel:${siteConfig.phoneDial}` : null,
-    },
-    {
-      label: 'WhatsApp',
-      display: siteConfig.whatsappDisplay,
-      href: siteConfig.whatsappNumber ? `https://wa.me/${siteConfig.whatsappNumber}` : null,
     },
     {
       label: 'Email',

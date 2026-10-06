@@ -35,18 +35,21 @@ Use square or portrait images at least 1200px wide, subject centred. The page ad
 - **Send on WhatsApp** opens WhatsApp with the enquiry pre-filled. It only needs a name. With no WhatsApp number set, WhatsApp asks the visitor to pick a contact, so set the number before launch.
 - **Send by email** posts to Formspree, which forwards the enquiry to Bode's inbox. Visitors do not need to be logged in to any mail app. Until the endpoint is set, it falls back to opening the visitor's mail app.
 
-### Set up Formspree (about 5 minutes)
+### Formspree
 
-1. Create a free account at formspree.io, using Bode's email address so enquiries land in his inbox.
-2. Create a new form and name it "LWB website enquiries". Copy its URL (it looks like `https://formspree.io/f/abcdwxyz`).
-3. Copy `.env.example` to `.env`, paste the URL as `VITE_FORMSPREE_ENDPOINT`, and rebuild. On Netlify, Vercel or Cloudflare Pages, add the same variable in the host's environment settings instead.
-4. Send a test enquiry from the live site and confirm it arrives. Check the spam folder the first time, and confirm the email address when Formspree asks.
+The form is already connected: its URL (`https://formspree.io/f/moejqzbp`) is set in `src/config/site.ts`, so there is nothing to configure when deploying. To use a different form, set `VITE_FORMSPREE_ENDPOINT` in `.env` (or in the host's environment settings).
+
+Before launch:
+
+1. Make sure the Formspree account uses Bode's email address, and confirm that address when Formspree asks.
+2. Send a test enquiry from the live site and confirm it arrives. Check the spam folder the first time.
+3. In the Formspree dashboard, restrict the form to the site's domain once it is live, so other sites cannot submit to it.
 
 The free plan allows 50 submissions a month. Check formspree.io/plans for current limits. Visitors who choose WhatsApp do not count towards the limit. The form includes Formspree's hidden spam-trap field.
 
 ## Deploying
 
-Any static host works (Netlify, Vercel, Cloudflare Pages). Build command `npm run build`, output folder `dist`. Add the `VITE_FORMSPREE_ENDPOINT` variable in the host's environment settings.
+Any static host works (Netlify, Vercel, Cloudflare Pages). Build command `npm run build`, output folder `dist`. No environment variables are required.
 
 ## Motion
 
@@ -55,4 +58,3 @@ The hero and tutor ring, the subject illustrations, the four-step line and the s
 ## Brand
 
 Navy `#002955` and orange `#FF780D`, sampled from the logo. Headings use Newsreader, body text uses Hanken Grotesk (both from Google Fonts, loaded in `index.html`).
-# learnwithbode

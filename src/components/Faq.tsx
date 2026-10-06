@@ -5,8 +5,8 @@ export default function Faq() {
   return (
     <section id="faq" className="scroll-mt-24 bg-white">
       <Container className="grid items-start gap-7 py-16 md:py-[120px] lg:grid-cols-12 lg:gap-x-6">
-        <h2 className="font-serif text-4xl leading-[1.08] tracking-[-0.015em] text-navy md:text-[48px] lg:col-span-4">
-          Questions parents ask.
+        <h2 className="font-serif text-[28px] uppercase leading-[1.2] tracking-[0.02em] text-navy md:text-[34px] lg:col-span-4">
+          Frequently asked questions
         </h2>
         <div className="lg:col-span-8">
           {faqs.map((faq) => (

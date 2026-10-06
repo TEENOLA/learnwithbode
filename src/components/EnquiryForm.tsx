@@ -70,11 +70,10 @@ export default function EnquiryForm({ selectedNeed, onChangeNeed }: EnquiryFormP
       <Container className="grid items-start gap-7 py-16 md:py-28 lg:grid-cols-12 lg:gap-x-6">
         <div className="flex flex-col gap-[22px] lg:col-span-5 lg:pr-6">
           <h2 className="font-serif text-4xl leading-[1.06] tracking-[-0.015em] md:text-[50px]">
-            Make an enquiry or request a quote.
+            Tell us what you need.
           </h2>
           <p className="text-[17px] leading-relaxed text-sky md:text-lg">
-            Tell us what you need and we will reply with the right option and a quote. You can also call or message Bode
-            directly.
+            We reply with the right class option and a price, usually within 2 hours. Or reach us directly:
           </p>
           <div className="mt-3">
             <ContactLines layout="block" />
@@ -243,7 +242,7 @@ export default function EnquiryForm({ selectedNeed, onChangeNeed }: EnquiryFormP
               <p aria-live="polite" className="text-[13px] leading-normal text-muted md:text-sm">
                 {status === 'error'
                   ? 'We could not send your enquiry. Please try again, or use WhatsApp instead.'
-                  : 'On a phone, WhatsApp is quickest. Email goes straight to Bode’s inbox, with no login needed.'}
+                  : 'WhatsApp is the fastest way to reach Bode. We use your details only to reply to your enquiry.'}
               </p>
             </form>
           )}
