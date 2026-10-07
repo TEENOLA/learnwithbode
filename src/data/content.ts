@@ -65,7 +65,25 @@ export const steps = [
   },
 ]
 
-export const testimonials = [
+export const testimonials: { quote: string; attribution: string; detail?: string }[] = [
+  {
+    quote:
+      'Before I met Bode I had almost lost confidence in my academic abilities, especially in Physics and Chemistry. His teaching completely changed my mindset and made me believe that I could actually excel academically. Today, I proudly say that I scored 337 in JAMB (UTME 2026) and I am confidently aspiring to study Pharmacy at the University of Lagos (UNILAG).',
+    attribution: 'Okoli Chukwudumaga',
+    detail: 'JAMB UTME 2026: 337',
+  },
+  {
+    quote:
+      'I remember a few years back when I didn’t know Chemistry, Physics and Mathematics, but my friend introduced me to Bode and I gave it a chance because I had nothing to lose. Now I got 320 in JAMB (UTME 2026) and I am pursuing admission at Obafemi Awolowo University (OAU) to study Mechanical Engineering.',
+    attribution: 'Oluwola Daniel',
+    detail: 'JAMB UTME 2026: 320',
+  },
+  {
+    quote:
+      'In 2017, I was fortunate to meet Bode while I was still in SS3. I only spent three months with him, literally three months, but they were very intense and helped me achieve a score of 303 in JAMB (UTME 2017). In 2024, I graduated with a BSc in Pure and Applied Physics.',
+    attribution: 'Sikiru Razak Boluwatife',
+    detail: 'JAMB UTME 2017: 303',
+  },
   {
     quote:
       'Learning with Bode gave me the foundation to believe in my potential, embrace challenges, and pursue opportunities beyond what I imagined possible.',
