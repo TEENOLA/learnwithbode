@@ -11,10 +11,10 @@ export default function Testimonials() {
         <div className="mt-8 grid items-start gap-10 md:mt-14 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.attribution} className="border-l-4 border-orange pl-5 md:pl-7">
-              <blockquote className="font-serif text-[21px] italic leading-[1.4] text-navy md:text-[23px]">
+              <blockquote className="text-[17px] leading-[1.7] text-ink md:text-[18px]">
                 “{testimonial.quote}”
               </blockquote>
-              <figcaption className="mt-4 text-[15px] font-semibold text-muted md:mt-5 md:text-base">
+              <figcaption className="mt-5 text-[15px] font-semibold text-navy md:text-base">
                 {testimonial.attribution}
                 {testimonial.detail ? (
                   <span className="mt-0.5 block text-sm font-normal text-muted">{testimonial.detail}</span>
